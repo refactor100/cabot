@@ -120,7 +120,7 @@ def _send_hipchat_alert(message, color='green', sender='Cabot'):
         'notify': 1,
         'color': color,
         'message_format': 'text',
-    })
+    }, verify=False)
 
 
 def send_sms_alert(service, users, duty_officers):
