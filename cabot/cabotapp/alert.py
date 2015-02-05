@@ -106,11 +106,12 @@ def send_hipchat_alert(service, users, duty_officers):
         'jenkins_api': settings.JENKINS_API,
     })
     message = Template(hipchat_template).render(c)
-    _send_hipchat_alert(message, color=color, sender='Cabot/%s' % service.name)
+    _send_hipchat_alert(message, color=color, sender='Cabot/%s' % service.name, service)
 
 
-def _send_hipchat_alert(message, color='green', sender='Cabot'):
-    room = settings.HIPCHAT_ALERT_ROOM
+def _send_hipchat_alert(message, color='green', sender='Cabot', service):
+    #room = settings.HIPCHAT_ALERT_ROOM
+    room = "Cabots-Alert-" + service.name 
     api_key = settings.HIPCHAT_API_KEY
     url = settings.HIPCHAT_URL
     resp = requests.post(url + '?auth_token=' + api_key, data={
