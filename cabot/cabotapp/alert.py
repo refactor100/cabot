@@ -111,7 +111,7 @@ def send_hipchat_alert(service, users, duty_officers):
 
 def _send_hipchat_alert(message, service, color='green', sender='Cabot'):
     #room = settings.HIPCHAT_ALERT_ROOM
-    room = "Cabots-Alert-" + service.name 
+    room = "Cabot-Alerts-" + service.name 
     api_key = settings.HIPCHAT_API_KEY
     url = settings.HIPCHAT_URL
     resp = requests.post(url + '?auth_token=' + api_key, data={
